@@ -1,0 +1,2 @@
+providerSpanFilter=io.github.xiaobaxi.sleuth.dubbo.ProviderSpanFilter
+consumerSpanFilter=io.github.xiaobaxi.sleuth.dubbo.ConsumerSpanFilter
