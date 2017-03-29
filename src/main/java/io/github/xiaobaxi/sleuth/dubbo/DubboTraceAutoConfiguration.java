@@ -28,8 +28,8 @@ public class DubboTraceAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public ApplicationContextAwareBean applicationContextAwareBean() {
-        return new ApplicationContextAwareBean();
+    public ApplicationContextBean applicationContextBean() {
+        return new ApplicationContextBean();
     }
 
 

@@ -25,10 +25,10 @@ public class ProviderSpanFilter implements Filter {
 		Span span = null;
 		try {
 			Map<String, String> attachments = RpcContext.getContext().getAttachments();
-			tracer = ApplicationContextAwareBean.CONTEXT.getBean(Tracer.class);
-			spanExtractor = ApplicationContextAwareBean.CONTEXT.getBean(DubboSpanExtractor.class);
-			spanInjector = ApplicationContextAwareBean.CONTEXT.getBean(DubboSpanInjector.class);
-			spanReporter = ApplicationContextAwareBean.CONTEXT.getBean(SpanReporter.class);
+			tracer = ApplicationContextBean.getContext().getBean(Tracer.class);
+			spanExtractor = ApplicationContextBean.getContext().getBean(DubboSpanExtractor.class);
+			spanInjector = ApplicationContextBean.getContext().getBean(DubboSpanInjector.class);
+			spanReporter = ApplicationContextBean.getContext().getBean(SpanReporter.class);
 
 			isTraceDubbo = (tracer != null && spanExtractor != null && spanInjector != null && spanReporter != null);
 			if (isTraceDubbo) {
