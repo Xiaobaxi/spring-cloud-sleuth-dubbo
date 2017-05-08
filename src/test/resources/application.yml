@@ -1,0 +1,9 @@
+spring:
+  sleuth:
+    sampler:
+      percentage: 1.0
+  application:
+    name: sleuth-dubbo
+logging:
+  level:
+  org.springframework.cloud.sleuth: DEBUG

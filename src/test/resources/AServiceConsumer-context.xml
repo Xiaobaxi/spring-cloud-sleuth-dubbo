@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+	<dubbo:protocol name="dubbo" port="20880" />
+	<dubbo:application name="a-consumer" />
+	<dubbo:registry address="N/A" />
+
+	<dubbo:reference id="aService"
+					 interface="io.github.xiaobaxi.sleuth.dubbo.test.impl.AService" url="dubbo://127.0.0.1:20881"
+					 version="1.0.0" />
+</beans>

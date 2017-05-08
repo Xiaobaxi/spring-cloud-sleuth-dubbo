@@ -3,6 +3,8 @@ package io.github.xiaobaxi.sleuth.dubbo;
 import com.alibaba.dubbo.common.Constants;
 import com.alibaba.dubbo.common.extension.Activate;
 import com.alibaba.dubbo.rpc.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cloud.sleuth.*;
 import org.springframework.cloud.sleuth.sampler.NeverSampler;
 
@@ -16,7 +18,10 @@ import java.util.Map;
 @Activate(group = { Constants.PROVIDER }, order = -9000)
 public class ProviderSpanFilter implements Filter {
 
+	private Logger logger = LoggerFactory.getLogger(ConsumerSpanFilter.class);
+
 	public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
+		logger.info("start the provider span filter......");
 		boolean isTraceDubbo = false;
 		Tracer tracer = null;
 		SpanExtractor<RpcContext> spanExtractor = null;

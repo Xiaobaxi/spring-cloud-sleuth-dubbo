@@ -3,6 +3,8 @@ package io.github.xiaobaxi.sleuth.dubbo;
 import com.alibaba.dubbo.common.Constants;
 import com.alibaba.dubbo.common.extension.Activate;
 import com.alibaba.dubbo.rpc.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cloud.sleuth.Span;
 import org.springframework.cloud.sleuth.SpanInjector;
 import org.springframework.cloud.sleuth.Tracer;
@@ -15,7 +17,10 @@ import org.springframework.cloud.sleuth.Tracer;
 @Activate(group = { Constants.CONSUMER }, order = -9000)
 public class ConsumerSpanFilter implements Filter {
 
+	private Logger logger = LoggerFactory.getLogger(ConsumerSpanFilter.class);
+
 	public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
+		logger.info("start the consumer span filter......");
 		boolean isTraceDubbo = false;
 		Tracer tracer = null;
 		SpanInjector<RpcContext> spanInjector = null;
