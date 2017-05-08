@@ -7,7 +7,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * 
+ * idea默认的xml会到classpath目录下的，所以需要指定加载locations
+ * eclipse操蛋的，默认会加载当前目录的BServiceProvider-context.xml文件，classpath下加载不了，不知道为什么
  * @author fangzhibin
  *
  */
